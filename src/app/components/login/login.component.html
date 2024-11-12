@@ -1,0 +1,57 @@
+<div class="container">
+  <!-- For left section of the page -->
+  <div class="left-section">
+    <div class="branding">
+      <h1>Vehicle Vault</h1>
+      <p>Financial success is a journey, and the first step is applying for the loan</p>
+    </div>
+  </div>
+
+  <!-- For right section of the page -->
+  <div class="right-section">
+    <!-- Login form -->
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <!-- Email field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <!-- This part will deal with errors -->
+          <mat-error *ngIf="loginForm.get('email').hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email').hasError('email')">
+            Enter a valid email
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Password field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <!-- This part will deal with errors -->
+          <mat-error *ngIf="loginForm.get('password').hasError('required')">
+            Password is required
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" id="login-button">Login</button>
+      </form>
+      <!-- If no account exists then this part will navigate users to signup page -->
+      <p>Don't have an account? <a routerLink="/signup">Signup</a></p>
+    </mat-card>
+  </div>
+</div>
+
+<div class="modal" *ngIf="isModalOpen">
+  <div class="open"></div>
+  <div class="success">
+    <h2>Invalid Email or Password !</h2>
+    <p class="new-user">New User? <a routerLink="/signup" id="newUser">Signup here</a></p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div>

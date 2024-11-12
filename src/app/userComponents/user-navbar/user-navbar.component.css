@@ -1,0 +1,48 @@
+.navbar {
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .navbar-title {
+    font-weight: bold;
+    color: white;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .user-indicator {
+    background-color: transparent;
+    color: gold;
+    border: 1.5px solid gold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .logout-button {
+    background-color: #E74C3C;
+    color: white;
+  }
+  .cancel-button{
+    margin: 10px;
+  }
+  .custom-dialog {
+    width: 400px; 
+    max-width: 100%;
+  }
+  
+  .custom-dialog-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  

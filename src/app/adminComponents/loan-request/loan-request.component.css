@@ -1,0 +1,187 @@
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-field {
+  flex: 1;
+  margin-right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 300px; 
+  height: 56px;
+}
+
+.status-field {
+  flex: 0 0 200px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 56px; 
+}
+
+button.mat-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; 
+}
+
+th.mat-header-cell, td.mat-cell {
+  border: 1px solid rgba(0, 0, 0, 0.1); 
+  text-align: center;
+  padding: 10px;
+}
+
+.main {
+  padding: 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/images/home-vehicles-image.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px); 
+    z-index: -1; 
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th.mat-header-cell {
+  background-color: #3f51b5;
+  color: white;
+  text-align: left; /* Left-align table headers */
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+td.mat-cell {
+  text-align: left; /* Left-align table data cells */
+  padding: 10px;
+}
+
+button.mat-button {
+  width: 100px;
+  margin: 5px;
+}
+
+button.mat-button[color="blue"] {
+  background-color: #3f51b5;
+  color: white;
+}
+
+button.mat-button[color="primary"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+button.mat-button[color="warn"] {
+  background-color: #f44336;
+  color: white;
+}
+
+.mat-paginator {
+  margin-top: 20px;
+}
+
+.action-column th.mat-header-cell,
+.action-column td.mat-cell {
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure the Action header cell is centered and red */
+.mat-header-row .mat-header-cell.action {
+  text-align: center !important;
+  
+}
+
+
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button mat-icon {
+  font-size: 24px;
+}
+
+.file-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 30px;
+}
+
+mat-dialog-content {
+  font-size: 14px;
+  padding: 20px;
+  margin: 30px;
+}
+
+pre {
+  margin: 40px;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;  
+  white-space: -pre-wrap;      
+  white-space: -o-pre-wrap;   
+  word-wrap: break-word; 
+}
+
+iframe {
+  width: 100%;
+  height: 100vh;
+}

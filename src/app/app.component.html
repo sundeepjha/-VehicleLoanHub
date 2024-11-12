@@ -1,0 +1,12 @@
+<router-outlet></router-outlet>
+<app-chat-ai *ngIf="(storage.getItem('role')==='user')"></app-chat-ai>
+<app-loader *ngIf="isLoading"></app-loader>
+
+<!-- <app-applied-loans></app-applied-loans> -->
+<!-- <app-view-all-loans></app-view-all-loans> -->
+<!-- <app-view-loans></app-view-loans> -->
+
+ <!-- <app-home-page></app-home-page> -->
+ <!-- <app-view-loans></app-view-loans> -->
+ <!-- <app-loan-request></app-loan-request> -->
+<!-- <app-landing-page></app-landing-page> -->

@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    background: url('../../../assets/images/login_signup.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.left-section {
+    color: white;
+}
+
+/* .branding {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+} */
+.branding {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* z-index: 2; */
+}
+.branding h1 {
+    font-size: 48px;
+    margin-top: 10%;
+}
+
+.branding p {
+    margin-top: 2%;
+    font-size: 18px;
+    text-align: center;
+}
+
+.right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+mat-card {
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+mat-card-title {
+    text-align: center;
+    font-size: 28px;
+    margin: 5% 0%;
+}
+
+mat-form-field {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+}
+
+p {
+    text-align: center;
+}
+
+a {
+    color: #3f51b5;
+    text-decoration: none;
+}
+
+#login-button {
+    background-color: #8600e5;
+    margin-bottom: 5%;
+    width: 30%;
+    text-align: center;
+}
+
+.success {
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    align-items: center;
+    width: 280px;
+    padding: 0px 20px 24px;
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    border-radius: 3px;
+    box-shadow: 0px 1px 13px 2px gray;
+    z-index: 20;
+    padding: 15px 0px;
+}
+
+.success button {
+    background-color: #31473A;
+    color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.success h1 {
+    margin: 8px;
+}
+
+.success p {
+    margin-top: -3px;
+    font-size: 16px;
+}
+
+.new-user {
+    margin: 10px;
+    font-size: 16px;
+}
+
+#newUser {
+    cursor: pointer;
+}
+
+.open {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(2px);
+    z-index: 10;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .branding h1 {
+        font-size: 36px;
+    }
+
+    mat-card {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: auto;
+        z-index: 10;
+    }
+
+    .right-section {
+        width: 100%;
+        padding: 0;
+    }
+
+    .branding h1 {
+        font-size: 28px;
+    }
+
+    .branding p {
+        text-align: center;
+        padding: 0 10%;
+    }
+
+    mat-card {
+        width: 60%;
+        margin: auto;
+        margin-top: 200px
+    }
+}
+
+@media (max-width: 480px) and (max-height: 600px) {
+    .branding h1 {
+        font-size: 24px;
+    }
+
+    .branding p {
+        font-size: 16px;
+        text-align: center;
+        padding: 0 30px;
+    }
+
+    mat-card {
+        width: 70%;
+        padding: 10px;
+        margin-top: 200px;
+    }
+
+    mat-card-title {
+        font-size: 20px;
+    }
+
+    mat-form-field {
+        margin-bottom: 10px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}

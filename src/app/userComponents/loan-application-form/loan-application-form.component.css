@@ -1,0 +1,78 @@
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: relative; 
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/images/home-vehicles-image.jpg'); 
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px); 
+  z-index: -1; 
+}
+
+.container {
+  max-width: 400px; 
+  margin: 20px auto; 
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9); 
+  overflow-y: auto; 
+  max-height: 80vh; 
+  position: relative; 
+  z-index: 1; 
+}
+
+.back-button {
+  background-color: #4CAF50;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.loan-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.loan-form mat-form-field {
+  width: 100%;
+  margin-bottom: 8px; 
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -28px; 
+  margin-bottom: 8px;
+}
+
+.loan-form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  margin-top: 20px;
+}

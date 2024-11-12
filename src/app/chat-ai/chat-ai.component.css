@@ -1,0 +1,75 @@
+#tars-fullpage-container {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 500px; 
+    height: 600px; 
+    z-index: 1000; 
+    border: none; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 15px; 
+    overflow: hidden; 
+}
+
+.tars-header {
+    position: absolute;
+    display: flex;
+    width: 85%;
+    height: 10%;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px; 
+    border-top-left-radius: 15px; 
+    border-top-right-radius: 15px;
+    z-index: 2000;
+}
+
+#tars-fullpage {
+    width: 100%;
+    height: calc(100% - 30px); 
+    border: none;
+    z-index: 100;
+}
+
+.mainContainer{
+    width: 25%;
+    height: 100%;
+}
+
+#close-button {
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.bot{
+    position: fixed;
+    cursor: pointer;
+    height: 150px;
+    width: auto;
+    bottom: 0;
+    right: 0;
+}
+
+.spinner{
+    position: absolute;
+    z-index: 10;
+}
+
+/* edgsfd */
+
+.bot {
+    position: fixed;
+    cursor: pointer;
+    height: 150px;
+    width: auto;
+    bottom: 0;
+    right: 0;
+}

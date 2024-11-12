@@ -1,0 +1,59 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="main">
+    <h2>Vehicle Loans</h2>
+    <div class="wrapper">
+        <div class="container">
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input matInput (keyup)="applyFilter($event)">
+              </mat-form-field>
+              
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <!-- Columns -->
+                <ng-container matColumnDef="loanType">
+                    <th mat-header-cell *matHeaderCellDef> Loan Type </th>
+                    <td mat-cell *matCellDef="let element" class="description">{{element.loanType}} </td>
+                </ng-container>
+ 
+                <ng-container matColumnDef="maximumAmount">
+                    <th mat-header-cell *matHeaderCellDef> Maximum Amount </th>
+                    <td mat-cell *matCellDef="let element"> {{element.maximumAmount}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="interestRate">
+                    <th mat-header-cell *matHeaderCellDef> Interest Rate </th>
+                    <td mat-cell *matCellDef="let element"> {{element.interestRate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef class="description-header"> Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action" class="action-column">
+                    <th mat-header-cell *matHeaderCellDef class="action-header"> Action </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="action-buttons">
+                            <button mat-button color="primary" (click)= editButton(element._id)>Edit</button>
+                            <button mat-button color="warn" (click)="deleteButton(element)">Delete</button>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+
+<div class="card" *ngIf="card">
+    <mat-card>
+        <mat-card-content>Are you sure you want to delete?</mat-card-content>
+        <button mat-button color="primary" (click)="delete()">Yes, Delete</button>
+        <button mat-button color="warn" (click)="close()">Cancel</button>
+    </mat-card>
+</div>

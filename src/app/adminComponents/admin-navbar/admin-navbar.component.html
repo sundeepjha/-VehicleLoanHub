@@ -1,0 +1,45 @@
+<mat-toolbar class="navbar">
+    <span class="navbar-title"><pre>VEHICLE LOANHUB</pre></span>
+    <span class="spacer"></span>
+    <button class="hamburger" (click)="toggleMenu()">☰</button>
+    <div class="user-indicator">{{username}} / Admin</div>
+    <div class="nav-links" [class.active]="menuActive">
+      <a mat-button routerLink="/home">Home</a>
+  
+      <!-- Dropdown Trigger -->
+      <div class="dropdown">
+        <a mat-button class="dropbtn">Loan</a>
+        
+        <!-- Dropdown Menu -->
+        <div class="dropdown-content">
+          <a mat-button routerLink="/add_loan">Add Loan</a>
+          <a mat-button routerLink="/view_loan">View Loan</a>
+        </div>
+      </div>
+  
+      <!-- End Dropdown -->
+      <a mat-button routerLink="/loans_requested">Loans Requested</a>
+      <button mat-button (click)="openLogoutDialog()" class="logout-button">Logout</button>
+    </div>
+  </mat-toolbar>
+  
+  <!-- Confirmation Dialog -->
+  <ng-template #logoutConfirmDialog let-dialogRef="dialogRef">
+    <h2 mat-dialog-title style="text-align: center;">Confirm Logout</h2>
+    <mat-dialog-content>Are you sure you want to logout?</mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button class="cancel-button" (click)="dialogRef.close(false)" >Cancel</button>
+      <button mat-button class="logout-button" (click)="dialogRef.close(true)">Logout</button>
+    </mat-dialog-actions>
+  </ng-template>
+  <!-- <ng-template #logoutConfirmDialog let-dialogRef="dialogRef">
+    <div class="custom-dialog">
+      <h2 mat-dialog-title>Confirm Logout</h2>
+      <mat-dialog-content>Are you sure you want to logout?</mat-dialog-content>
+      <mat-dialog-actions class="custom-dialog-actions">
+        <button mat-button (click)="dialogRef.close(false)">Cancel</button>
+        <button mat-button class="logout-button" (click)="dialogRef.close(true)">Logout</button>
+      </mat-dialog-actions>
+    </div>
+  </ng-template> -->
+  

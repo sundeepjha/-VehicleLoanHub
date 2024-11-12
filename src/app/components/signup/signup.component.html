@@ -1,0 +1,83 @@
+<div class="signup-container">
+    <div class="signup-form">
+        <h2>Signup</h2>
+        <form class="register-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label>User Name</mat-label>
+                <input matInput formControlName="userName">
+                <mat-error *ngIf="signupForm.get('userName').hasError('required')">
+                    User Name is required
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+                <mat-error *ngIf="signupForm.get('email').hasError('required')">
+                    Email is required
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('email').hasError('email')">
+                    Invalid email format
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Mobile Number</mat-label>
+                <input matInput placeholder="Mobile" formControlName="mobile">
+                <mat-error *ngIf="signupForm.get('mobile').hasError('required')">
+                    Mobile Number is required
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('mobile').hasError('pattern')">
+                    Mobile number must be 10 digits
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password" formControlName="password">
+                <mat-error *ngIf="signupForm.get('password').hasError('required')">
+                    Password is required
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('password').hasError('minlength')">
+                    Password must be at least 8 characters
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('password').hasError('pattern')">
+                    Password must contain at least one numeric character, one special character, one uppercase letter, and one lowercase letter
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+                <mat-error *ngIf="signupForm.get('confirmPassword').hasError('required')">
+                    Confirm Password is required
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('confirmPassword').hasError('mustMatch')">
+                    Passwords must match
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Role</mat-label>
+                <mat-select formControlName="role">
+                    <mat-option value="user">User</mat-option>
+                    <mat-option value="admin">Admin</mat-option>
+                </mat-select>
+                <mat-error *ngIf="signupForm.get('role').hasError('required')">
+                    Role is required
+                </mat-error>
+            </mat-form-field>
+
+            <button id="register-button" mat-raised-button type="submit">Submit</button>
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+        </form>
+
+        <div class="modal" *ngIf="isModalOpen">
+            <div class="open"></div>
+            <div class="success">
+                <p>User Registration is Successful!</p>
+                <button (click)="closeModal()">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+.container {
+  margin: 20px;
+  width: 75%;
+  position: relative; 
+  z-index: 1;
+  height: 80vh;
+}
+
+mat-form-field {
+width: 100%;
+margin-bottom: 20px;
+}
+
+table {
+width: 100%;
+}
+
+th.mat-header-cell {
+background-color: #3f51b5;
+color: white;
+text-align: left; /* Left-align table headers */
+}
+
+td.mat-cell {
+text-align: left; /* Left-align table data cells */
+}
+
+th.mat-header-cell.description-header,
+th.mat-header-cell.action-header {
+text-align: center; /* Center-align specific headers */
+}
+
+button.mat-button {
+width: 100px;
+margin: 5px;
+}
+
+button.mat-button[color="primary"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+button.mat-button[color="warn"] {
+  background-color: #f44336;
+  color: white;
+}
+
+.mat-paginator {
+margin-top: 20px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  position: relative; 
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../../assets/images/home-vehicles-image.jpg'); 
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px); 
+  z-index: -1; 
+}
+
+.action-column th.mat-header-cell,
+.action-column td.mat-cell {
+  text-align: center; 
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+}
+
+mat-form-field {
+width: 300px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.card {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: visible; 
+  opacity: 1; 
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,76 @@
+<app-user-navbar></app-user-navbar>
+<div class="wrapper">
+  <div class="container">
+    <button mat-button class="back-button" [routerLink]="'/view_all_loans'">Back</button>
+    <form [formGroup]="loanForm" (ngSubmit)="onSubmit()" class="loan-form" enctype="multipart/form-data">
+      <h1>Loan Application Form</h1> 
+
+      <mat-form-field appearance="fill">
+        <mat-label>Income</mat-label>
+        <input matInput formControlName="income" required>
+      </mat-form-field>
+      <div class="error-message" *ngIf="loanForm.get('income').touched && loanForm.get('income').invalid">
+        Income is required.
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Purchase Date</mat-label>
+        <input matInput [max]="today" formControlName="model" type="date" required>
+      </mat-form-field>
+      <div class="error-message" *ngIf="loanForm.get('model').touched && loanForm.get('model').invalid">
+        Model date is required.
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Purchase Price</mat-label>
+        <input matInput formControlName="purchasePrice" type="number" required>
+      </mat-form-field>
+      <div class="error-message" *ngIf="loanForm.get('purchasePrice').touched && loanForm.get('purchasePrice').invalid">
+        Invalid purchase price.
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Credit Score</mat-label>
+        <input matInput formControlName="creditScore" type="number" required>
+      </mat-form-field>
+      <div class="error-message" *ngIf="loanForm.get('creditScore').touched && loanForm.get('creditScore').invalid">
+        Invalid credit score.
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Loan Tenure</mat-label>
+        <input matInput formControlName="loanTenure" type="number" required>
+      </mat-form-field>
+      <div class="error-message" *ngIf="loanForm.get('loanTenure').touched && loanForm.get('loanTenure').invalid">
+        Loan Tenure is required.
+      </div>
+
+      <div>
+        <label>Proof</label>
+        <input type="file" name="proofFile" id="proofFile" (change)="onFileSelected($event)" required>
+      </div>
+      <div class="error-message" *ngIf="loanForm.get('proofFile').touched && loanForm.get('proofFile').invalid">
+        Proof file is required.
+      </div>
+
+      <button mat-raised-button [disabled]="loanForm.invalid" color="primary" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- <h2>Loan Application Form</h2>
+<table>
+    <tr>
+        <th>Income</th>
+        <th>Model</th>
+        <th>Purchase Price</th>
+        <th>Address</th>
+        <th>Proof</th>
+    </tr>
+</table> -->

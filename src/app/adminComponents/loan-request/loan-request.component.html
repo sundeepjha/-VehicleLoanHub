@@ -1,0 +1,100 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="main">
+  <h2>Loan Requests for Approval</h2>
+  <div class="wrapper">
+    <div class="container">
+      <mat-form-field class="search-field">
+        <mat-label>Search</mat-label>
+        <input matInput (input)="applyFilter($event.target.value)">
+      </mat-form-field>
+
+      <mat-form-field class="status-field">
+        <mat-label>Filter by Status</mat-label>
+        <mat-select [formControl]="statusControl" (selectionChange)="applyStatusFilter($event.value)">
+          <mat-option value="">All</mat-option>
+          <mat-option value="1">Pending</mat-option>
+          <mat-option value="2">Approved</mat-option>
+          <mat-option value="3">Rejected</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table" matSort
+        (matSortChange)="onSortChange()">
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+          <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="loanType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Loan Type </th>
+          <td mat-cell *matCellDef="let element"> {{element.loanType}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="model">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+          <td mat-cell *matCellDef="let element"> {{element.model | date: 'MMM d, y'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="submissionDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Submission Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.submissionDate | date: 'MMM d, y'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="purchasePrice">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Price </th>
+          <td mat-cell *matCellDef="let element"> {{element.purchasePrice | currency:'INR'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="income">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Income </th>
+          <td mat-cell *matCellDef="let element"> {{element.income | currency:'INR'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+          <td mat-cell *matCellDef="let element"> {{status[element.loanStatus]}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action" class="action-column">
+          <th mat-header-cell *matHeaderCellDef class="action"> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <div class="action-buttons">
+              <button mat-button color="blue" (click)="openDialog(element)">Analysis</button>
+              <button mat-button color="primary" [disabled]="element.approved||element.loanStatus===2"
+                (click)="toggleButtons(element, 'approve')">Approve</button>
+              <button mat-button color="warn" [disabled]="element.rejected||element.loanStatus===3"
+                (click)="toggleButtons(element, 'reject')">Reject</button>
+            </div>
+          </td>
+        </ng-container>
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [length]="totalApplications" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons (page)="onPaginateChange($event)">
+      </mat-paginator>
+
+    </div>
+  </div>
+</div>
+
+<!-- Modal for files uploaded by user -->
+
+<ng-template #loanDetailsDialog>
+  <div class="dialog-header">
+    <h2 mat-dialog-title>AI Analysis</h2>
+    <button mat-icon-button mat-dialog-close class="close-button">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-dialog-content>
+    <div class="file-container">
+      <pre>{{ selectedComment }}</pre> 
+    </div>
+    <iframe [src]="selectedFile" frameborder="0"></iframe>
+  </mat-dialog-content>
+</ng-template>

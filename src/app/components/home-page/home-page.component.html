@@ -1,0 +1,20 @@
+<app-admin-navbar *ngIf="role === 'admin'"></app-admin-navbar>
+<app-user-navbar *ngIf="role === 'user'"></app-user-navbar>
+
+<div class="home">
+  <span class="overlay-text">Vehicle Loan HUB</span>
+
+  <div class="centered-section">
+    <p>Applying for a vehicle loan is now easier than ever. Our platform offers a seamless application process,
+      competitive rates, and quick approval. Start your application today and get one step closer to owning your dream
+      vehicle.</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:example@example.com">contact@vehicleloanhub.com</a></p>
+      <p>Phone: +91 9090909090</p>
+    </div>
+  </footer>
+</div>

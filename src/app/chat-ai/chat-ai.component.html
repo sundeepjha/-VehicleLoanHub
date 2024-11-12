@@ -1,0 +1,28 @@
+<div>
+    <!-- <div *ngIf="!clicked">
+        <img (click)="toggel()" class="bot" src="../../assets/images/chatbot.gif" alt="">
+        <div class="chat-bubble">Hello! How can I help you today?</div>
+    </div> -->
+
+    <!-- <div id="ratingBubble" class="talk-bubble tri-right border round btm-left-in">
+        <div class="talktext">
+            <p><b>4.6 overall ratings</b><br />from <u>20</u> Shopify store owners</p>
+        </div>
+    </div> -->
+
+    <div *ngIf="!clicked" class="chat-container">
+        <!-- <div class="chat-bubble">Hi!! I am GAmMA your personal chatbot</div> -->
+        <img (click)="toggel()" class="bot" src="../../assets/images/chatbot.gif" alt="">
+    </div>
+
+    <div *ngIf="clicked" id="tars-fullpage-container" class="tars-fullpage-container-class">
+        <!-- <mat-spinner class="spinner"></mat-spinner> -->
+        <div class="tars-header">
+            <button id="close-button" (click)="toggel()">&times;</button>
+        </div>
+        <iframe id="tars-fullpage" width="25%" height="100%" frameborder="1"
+            allow="geolocation; microphone; camera; midi; encrypted-media;"
+            src="https://gamma.hellotars.com/conv/cVw5iI/">
+        </iframe>
+    </div>
+</div>

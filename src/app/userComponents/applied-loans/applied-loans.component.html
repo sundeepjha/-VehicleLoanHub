@@ -1,0 +1,59 @@
+<app-user-navbar></app-user-navbar>
+<h2>Applied Loans</h2>
+<div class="wrapper">
+    <div class="container">
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event.target.value)">
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- Serial Number Column -->
+            <ng-container matColumnDef="srNo">
+                <th mat-header-cell *matHeaderCellDef> SNo</th>
+                <td mat-cell *matCellDef="let element; let i = index"> {{ getSerialNumber(i) }} </td>
+            </ng-container>
+
+            <!-- Loan Name Column -->
+            <ng-container matColumnDef="LoanName">
+                <th mat-header-cell *matHeaderCellDef> Loan Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.loanType}} </td>
+            </ng-container>
+
+            <!-- Submission Date Column -->
+            <ng-container matColumnDef="submissionDate">
+                <th mat-header-cell *matHeaderCellDef> Submission Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.submissionDate | date:'yyyy-MM-dd'}} </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{status[element.loanStatus]}} </td>
+            </ng-container>
+
+            <!-- Action Column -->
+            <ng-container matColumnDef="action" class="action-column">
+                <th mat-header-cell *matHeaderCellDef style="text-align: center"> Action </th>
+                <td mat-cell *matCellDef="let element">
+                    <div class="action-buttons">
+                        <button mat-button color="warn" (click)="deleteButton(element)">Delete</button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+
+<div class="card" *ngIf="card">
+    <mat-card>
+        <mat-card-content>Are you sure you want to delete?</mat-card-content>
+        <button mat-button color="primary" (click)="delete()">Yes, Delete</button>
+        <button mat-button color="warn" (click)="close()">Cancel</button>
+    </mat-card>
+</div>

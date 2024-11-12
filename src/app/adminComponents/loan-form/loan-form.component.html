@@ -1,0 +1,41 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="background-blur"></div>
+  <form [formGroup]="loanForm" (ngSubmit)="onSubmit()" class="loan-form">
+    <h1>{{ loanId ? 'Edit Loan' : 'Create New Loan' }}</h1>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Loan Type</mat-label>
+      <input matInput formControlName="loanType" required>
+      <mat-error *ngIf="loanForm.get('loanType').hasError('required')">
+        Loan Type is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" required>
+      <mat-error *ngIf="loanForm.get('description').hasError('required')">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Interest Rate</mat-label>
+      <input matInput formControlName="interestRate" type="number" required>
+      <mat-error *ngIf="loanForm.get('interestRate').hasError('required')">
+        Interest Rate is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Maximum Amount</mat-label>
+      <input matInput formControlName="maximumAmount" type="number" required>
+      <mat-error *ngIf="loanForm.get('maximumAmount').hasError('required')">
+        Maximum Amount is required
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">{{ loanId ? 'Update Loan' : 'Add Loan' }}</button>
+  </form>
+
+

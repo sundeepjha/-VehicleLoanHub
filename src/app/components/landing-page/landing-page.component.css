@@ -1,0 +1,125 @@
+body {
+  background-color: #ffffff;
+  color: #000000;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.footer {
+  background-color: #2c3e50;
+  padding: 2px 0px;
+  text-align: center;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content h3 {
+  margin: 0;
+}
+
+.footer-content p {
+  margin: 2px 0;
+}
+
+.footer-content a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.login-button {
+  margin-left: auto;
+}
+
+.hero-section {
+  position: relative;
+  background: url('../../../assets/images/home-vehicles-image.jpg') no-repeat center center;
+  background-size: cover;
+  height: 86vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  filter: blur(8px);
+}
+
+.hero-content {
+  position: relative;
+  color: #ffffff;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.features-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 95%;
+  background: rgba(255, 255, 255, 0.8);
+  color: #000000;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  width: 30%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.feature-card mat-card-header,mat-card-content{
+  text-align: left;
+  padding-left: 20px;
+}
+
+mat-card-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+mat-card-header{
+  width: 100%;
+}
